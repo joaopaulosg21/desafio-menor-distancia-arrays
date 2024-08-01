@@ -2,6 +2,7 @@
 #include <array>
 #include <vector>
 #include <bits/stdc++.h>
+#include <limits.h>
 
 struct result{
     int posArr;
@@ -9,10 +10,9 @@ struct result{
     int min;
 };
 
-result calcDistance(std::array<int,10> first, std::array<int,10> second) {
+result calcDistance(std::vector<int> first, std::vector<int> second) {
     result response;
-    int menor = second[0] - first[0];
-
+    int min = INT_MAX;
     for(int i=0; i < first.size();i++) {
         for(int j=0; j < second.size();j++) {
             int value;
@@ -21,14 +21,18 @@ result calcDistance(std::array<int,10> first, std::array<int,10> second) {
             }else if(first[i] > second[j]) {
                 value = first[i] - second[j];
             }else {
-                menor = first[i] - second[j];
-            }
-
-            if(value < menor) {
+                value = first[i] - second[j];
                 response.posArr = i;
                 response.posArr2 = j;
-                menor = value;
-                response.min = menor;
+                response.min = value;
+                return response;
+            }
+
+            if(value < min) {
+                response.posArr = i;
+                response.posArr2 = j;
+                min = value;
+                response.min = min;
             }
         }
     }
@@ -39,11 +43,11 @@ result calcDistance(std::array<int,10> first, std::array<int,10> second) {
 
 int main() {
 
-    std::array<int, 10> arr = {5,40,1,45,223,11,15,10,9,350};
-    std::array<int, 10> arr2 = {30,91,52,19,8,4,2,13,43,18};
+    std::vector<int> arr = {40,1,45,223,11,15,10,350,200,-4,22};
+    std::vector<int> arr2 = {30,91,52,19,8,4,23,13,43,18,40};
 
     result response = calcDistance(arr,arr2); 
-    std::cout << "Posição do elemento no array 1: " << response.posArr << "\n"
-    << "Posição do elemento no array 2: "<< response.posArr2 << "\n"
-    << "Valor da menor distancia: " << response.min << + "\n";
+    std::cout << "Valor da menor distancia: " << response.min << + "\n"
+    << "Posição do elemento no array 1: " << response.posArr << "\n"
+    << "Posição do elemento no array 2: "<< response.posArr2 << "\n";
 }
