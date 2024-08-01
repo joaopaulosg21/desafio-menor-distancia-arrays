@@ -10,6 +10,7 @@
 ## Como rodar local (linux)
 
 - Clone esse repositorio localmente
+- Navegue pelo terminal para o repositorio `cd desafio-menor-distancia-arrays`
 - No terminal use `mkdir build && cd build`
 - Dentro da pasta build use o comando `cmake ../` para compilar o codigo 
 - Depois `make` para gerar o executavel 
