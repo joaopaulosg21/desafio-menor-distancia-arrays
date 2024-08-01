@@ -1,6 +1,6 @@
 # Desafio da Menor Distância de Dois Arrays
 
-- Link da solução online : [clique aqui](https://onecompiler.com/cpp/42mwr5pc2)
+### Link da solução online : [clique aqui](https://onecompiler.com/cpp/42mwr5pc2)
 
 
 ## Pré-requisitos
